@@ -5,3 +5,4 @@ xformers>=0.0.20
 gdown>=5.0.0
 pydantic>=2.12.4
 lazy_object_proxy>=1.12.0
+PyYAML>=6.0

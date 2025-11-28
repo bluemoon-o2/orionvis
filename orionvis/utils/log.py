@@ -2,11 +2,13 @@ import os
 import sys
 import logging
 import warnings
-from contextlib import contextmanager
-from typing import Union
+import contextlib
+from pathlib import Path
+from typing import Union, Iterator
 
 # xFormers Logger and Warning Configuration
 _XFORMERS_LOGGER = logging.getLogger("xformers")
+logger = logging.getLogger(__name__)
 
 class XFormersConfig:
     def __init__(self):
@@ -57,7 +59,7 @@ class XFormersConfig:
         _XFORMERS_LOGGER.setLevel(self._log_level)
 
 
-@contextmanager
+@contextlib.contextmanager
 def suppress_output(stdout: bool = False, stderr: bool = True):
     path = 'nul' if os.name == 'nt' else '/dev/null'
     devnull = open(path, 'w')
@@ -75,3 +77,22 @@ def suppress_output(stdout: bool = False, stderr: bool = True):
         if stderr:
             sys.stderr = old_stderr
         devnull.close()
+
+
+@contextlib.contextmanager
+def sys_path(path: Union[str, Path]) -> Iterator[None]:
+    abs_path = str(Path(path).resolve())
+    added = False
+
+    try:
+        if abs_path not in sys.path:
+            sys.path.insert(0, abs_path)
+            added = True
+        yield
+
+    finally:
+        if added and abs_path in sys.path:
+            try:
+                sys.path.remove(abs_path)
+            except ValueError:
+                logger.info(f"[sys_path exit] Path {abs_path} not found in sys.path, skipping removal.")

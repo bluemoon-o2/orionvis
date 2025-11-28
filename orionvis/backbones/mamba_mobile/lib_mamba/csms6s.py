@@ -1,23 +1,22 @@
-import time
-import torch
 import warnings
 
+import torch
 
 WITH_SELECTIVESCAN_OFLEX = True
 WITH_SELECTIVESCAN_CORE = False
 WITH_SELECTIVESCAN_MAMBA = True
 try:
-    import selective_scan_cuda_oflex
+    from orionvis.extentions.selective_scan import selective_scan_cuda_oflex
 except ImportError:
     WITH_SELECTIVESCAN_OFLEX = False
     warnings.warn("Can not import selective_scan_cuda_oflex. This affects speed.")
     print("Can not import selective_scan_cuda_oflex. This affects speed.", flush=True)
 try:
-    import selective_scan_cuda_core
+    import orionvis.extentions.selective_scan.selective_scan_cuda_core as selective_scan_cuda_core
 except ImportError:
     WITH_SELECTIVESCAN_CORE = False
 try:
-    import selective_scan_cuda
+    import orionvis.extentions.selective_scan.selective_scan_cuda as selective_scan_cuda
 except ImportError:
     WITH_SELECTIVESCAN_MAMBA = False
 

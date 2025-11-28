@@ -1,0 +1,14 @@
+model_name: "tresnet_l_v2"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Aliyun"
+    url: "https://miil-public-eu.oss-eu-central-1.aliyuncs.com/model-zoo/USI/tresnet_l_v2_83_9.pth"
+    transform:
+      name: "TresnetTransform"
+      params:
+        resize_size: 224
+    meta:
+      num_classes: 1000
+    deprecated: { False : ""}
+    md5: ""

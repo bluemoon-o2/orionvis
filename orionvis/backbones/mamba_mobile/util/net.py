@@ -15,7 +15,7 @@ try:
 except ImportError:
 	from collections.abc import Iterable
 from timm.utils.agc import adaptive_clip_grad
-from util.util import log_msg
+from .util import log_msg
 from fvcore.nn import FlopCountAnalysis, flop_count_table
 from timm.utils import NativeScaler, ApexScaler
 from contextlib import suppress, contextmanager

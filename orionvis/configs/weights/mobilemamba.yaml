@@ -18,7 +18,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.715
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_t2.txt"
+      cfg_path: "../snaps/models/mobilemamba_t2.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -43,7 +43,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.769
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_t2s.txt"
+      cfg_path: "../snaps/models/mobilemamba_t2s.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -68,7 +68,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.761
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_t4.txt"
+      cfg_path: "../snaps/models/mobilemamba_t4.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -93,7 +93,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.789
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_t4s.txt"
+      cfg_path: "../snaps/models/mobilemamba_t4s.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -118,7 +118,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.780
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_s6.txt"
+      cfg_path: "../snaps/models/mobilemamba_s6.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -143,7 +143,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.807
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_s6s.txt"
+      cfg_path: "../snaps/models/mobilemamba_s6s.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -168,7 +168,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.799
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b1.txt"
+      cfg_path: "../snaps/models/mobilemamba_b1.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -193,7 +193,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.822
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b1s.txt"
+      cfg_path: "../snaps/models/mobilemamba_b1s.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -218,7 +218,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.816
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b2.txt"
+      cfg_path: "../snaps/models/mobilemamba_b2.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -243,7 +243,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.833
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b2s.txt"
+      cfg_path: "../snaps/models/mobilemamba_b2s.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -268,7 +268,7 @@ weights:
       training_epoches: 1000
       accuracy: 0.825
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b4.txt"
+      cfg_path: "../snaps/models/mobilemamba_b4.txt"
     deprecated: { False : ""}
     md5: ""
 
@@ -293,6 +293,6 @@ weights:
       training_epoches: 1000
       accuracy: 0.836
       release: "CVPR2025"
-      cfg_path: "../snaps/mobilemamba/mobilemamba_b4s.txt"
+      cfg_path: "../snaps/models/mobilemamba_b4s.txt"
     deprecated: { False : ""}
     md5: ""

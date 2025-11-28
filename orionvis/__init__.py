@@ -24,7 +24,6 @@ Key APIs
 """
 import logging
 import warnings
-from importlib.metadata import PackageNotFoundError, version
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API*")
 
 # Logger Configuration
@@ -41,7 +40,7 @@ from .features import *
 from .utils import *
 
 try:
-    __version__ = version("orionvis")
-except PackageNotFoundError as e:
-    __version__ = "unknown"
-    warnings.warn(f"{e}.\nPlease try to install orionvis again with `pip install orionvis` to solve this problem.\n")
+    from ._version import version as __version__
+except ImportError:
+    __version__ = "0.0.0"
+    warnings.warn(f"Attention: version meta is missing.")

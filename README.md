@@ -1,21 +1,18 @@
 <div align="center">
-<img src="./docs/OrionVis_Minimal_Logo.png" alt="OrionVis">
+<img src="./docs/OrionVis_Minimal_Logo.png" alt="OrionVis" width="20%">
 
-# orionvis
+# OrionVis
 
-A PyTorch‑friendly Computer Vision toolkit for unified backbone loading, YAML‑based weights, and registered preprocessing.
+A PyTorch‑friendly Computer Vision toolkit for unified backbone loading, feature extraction, and registered preprocessing.
 
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Status](https://img.shields.io/badge/status-alpha-orange.svg)](#)
-[![Issues](https://img.shields.io/github/issues/bluemoon-o2/models?label=issues&logo=github)](https://github.com/bluemoon-o2/models/issues)
-
+[![Issues](https://img.shields.io/github/issues/bluemoon-o2/orionvis?label=issues&logo=github)](https://github.com/bluemoon-o2/orionvis/issues)
 </div>
 
 ## Overview
-orionvis streamlines common CV workflows in PyTorch: load backbones with a single call, manage pretrained weights via YAML with lazy indexing, and apply registered transforms for classification inference. It consolidates model, weight, and preprocessing logic while staying lightweight and production‑ready.
-
-![OrionVis_Banner](./docs/OrionVis_Banner.png)
+OrionVis streamlines common CV workflows in PyTorch: load backbones with a single call, manage pretrained weights via YAML with lazy indexing, and apply registered transforms for classification inference. It consolidates model, weight, and preprocessing logic while staying lightweight and production‑ready.
 
 ## Features
 - Unified backbone loader: `resnet*`, `dino*`, `mobilemamba_*`.
@@ -23,14 +20,16 @@ orionvis streamlines common CV workflows in PyTorch: load backbones with a singl
 - Transform registry (e.g., `ImageClassification`) for ready‑to‑use preprocessing.
 - Feature extraction helpers and utilities.
 
+<img src="./docs/OrionVis_Banner.png" alt="OrionVis_Banner">
+
 ## Installation
 ```bash
 pip install orionvis
 ```
-For local development:
+For source code installation:
 ```bash
-git clone https://github.com/bluemoon-o2/models
-cd models
+git clone https://github.com/bluemoon-o2/orionvis
+cd orionvis
 pip install -e .
 ```
 
@@ -39,27 +38,80 @@ pip install -e .
 import orionvis
 
 # Load a backbone with pretrained weights
-model = orionvis.load("mobilemamba_b1s", pretrained=True)
+model = orionvis.load("mobilemamba_b1s")
 
 # Retrieve weight metadata and preprocessing transform
 weight = orionvis.get_weights("mobilemamba_b1s")
-transform = orionvis.api.WeightsRegistry().get_transform("mobilemamba_b1s")
+transform = orionvis.get_transform("mobilemamba_b1s")
 
 # Example: preprocess an input PIL image
 # img = transform(img)
 # logits = model(img.unsqueeze(0))
 ```
 
+## OrionVis Hub
+
+OrionVis Hub allows you to load models and entrypoints directly from GitHub repositories or local directories.
+
+### Load Model
+
+Load a model or entrypoint from a GitHub repository:
+
+```python
+import orionvis.hub as hub
+
+# Load from GitHub
+model = hub.load("pytorch/vision:v0.10.0", "resnet18")
+
+# Load from a local directory
+# model = hub.load("/path/to/local/repo", "custom_model", source="local")
+```
+
+### List Entrypoints
+
+List all available entrypoints in a repository:
+
+```python
+import orionvis.hub as hub
+
+entrypoints = hub.entrypoints("pytorch/vision:v0.10.0")
+print(entrypoints)
+```
+
+### View Documentation
+
+View the docstring of a specific entrypoint:
+
+```python
+import orionvis.hub as hub
+
+doc = hub.docs("pytorch/vision:v0.10.0", "resnet18")
+print(doc)
+```
+
+### Load State Dict
+
+Download and load a state dictionary from a URL:
+
+```python
+import orionvis.hub as hub
+
+state_dict = hub.load_state_dict_from_url(
+    "https://download.pytorch.org/models/resnet18-5c106cde.pth",
+    check_hash=True
+)
+```
+
 ## Models
-- Programmatic list: `orionvis.api.WeightsRegistry().list_models()`
-- Included backbones: `resnet18`…`resnet152`, `resnext*`, `wide_resnet*`, `dinov2_*`, `dinov3_*`, `mobilemamba_*`.
+- Programmatic list: `orionvis.list_models()`
+- Included backbones: `resnext*`, `wide_resnet*`, `dinov2_*`, `dinov3_*`, `mobilemamba_*`.
 
 ## Weights
-- Config path: `orionvis/configs/weights/mobilemamba.yaml` (multi‑document YAML; one model per document).
-- Download path cache: `~/.cache/gdown` (configurable via `ORIONVIS_CACHE`).
+- Config path: `orionvis/configs/weights/mobilemamba.yaml` (multi‑model YAML; one class per document).
+- Download path cache: `~/.cache/orionvis` (configurable via `ORIONVIS_CACHE`).
 
 ## License
-Apache License 2.0. See the license text: https://www.apache.org/licenses/LICENSE-2.0
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Citation
 ```

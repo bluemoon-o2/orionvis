@@ -1,7 +1,20 @@
 ./output
 try.py
 
-./orionvis.egg-info
+*.egg-info/
 ./ad
 ./__pycache__
 ./.idea
+
+# Compiled extensions
+*.pyd
+*.so
+*.dll
+*.dylib
+
+# Build artifacts
+build/
+dist/
+
+# Generated version file
+orionvis/_version.py

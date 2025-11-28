@@ -16,6 +16,10 @@
 #include "selective_scan_common.h"
 #include "static_switch.h"
 
+#ifndef M_LOG2E
+#define M_LOG2E 1.44269504088896340736
+#endif
+
 template<int kNThreads_, int kNItems_, bool kIsEvenLen_, typename input_t_, typename weight_t_, typename output_t_>
 struct Selective_Scan_fwd_kernel_traits {
     static_assert(kNItems_ % 4 == 0);

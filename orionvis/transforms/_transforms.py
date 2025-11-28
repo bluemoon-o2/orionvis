@@ -9,7 +9,7 @@ __all__ = ["TransformT", "register_transform", "get_transform", "TRANSFORM_LIST"
 @register_transform("ImageClassification")
 def image_classification(crop_size: int = 224, resize_size: int = 256, normalize: bool = True) -> transforms.Compose:
     """
-    Standard preprocessing pipeline for image classification tasks (compatible with ImageNet-pretrained orionvis).
+    Standard preprocessing pipeline for image classification tasks (compatible with ImageNet-pretrained models).
     Input: PIL Image / NumPy ndarray / PyTorch Tensor
     Output: Normalized PyTorch Tensor (shape: [3, crop_size, crop_size], range: [-1, 1] approx)
 
@@ -32,3 +32,28 @@ def image_classification(crop_size: int = 224, resize_size: int = 256, normalize
     if normalize:
         ops.append(transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]))
     return transforms.Compose(ops)
+
+
+@register_transform("TresnetTransform")
+def tres_net_transform(resize_size: int = 224) -> transforms.Compose:
+    """
+    Standard preprocessing pipeline for image classification tasks (compatible with ImageNet-pretrained models).
+    Input: PIL Image / NumPy ndarray / PyTorch Tensor
+    Output: Normalized PyTorch Tensor (shape: [3, crop_size, crop_size], range: [-1, 1] approx)
+
+    Args:
+        resize_size: Size to resize the image before center cropping (default: 224, standard for TResNet)
+
+    Returns:
+        transforms.Compose: Composed transform pipeline with the following steps:
+            1. Resize: Scale image to (resize_size, resize_size)
+            2. CenterCrop: Extract center region of size (crop_size, crop_size)
+            3. ToTensor: Convert to PyTorch Tensor (HWC → CHW, uint8 → float32, scale [0,255] → [0,1])
+            4. Normalize: Standardize using ImageNet statistics (mean=[0., 0., 0.], std=[1.0, 1.0, 1.0])
+    """
+    return transforms.Compose([
+        transforms.Resize(resize_size),
+        transforms.CenterCrop(resize_size * 0.875),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0, 0, 0], std=[1, 1, 1])
+    ])

@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from .util.registry import Registry
 MODEL = Registry('Model')
-from .mobilemamba import MobileMamba_T2, MobileMamba_T4, MobileMamba_S6, MobileMamba_B1, MobileMamba_B2, MobileMamba_B4
+from .models import MobileMamba_T2, MobileMamba_T4, MobileMamba_S6, MobileMamba_B1, MobileMamba_B2, MobileMamba_B4
 
 
 __all__ = ['get_model']

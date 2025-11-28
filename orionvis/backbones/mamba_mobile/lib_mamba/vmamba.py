@@ -1,17 +1,15 @@
-import os
-import time
-import math
 import copy
-from functools import partial
-from typing import Optional, Callable, Any
+import math
 from collections import OrderedDict
+from functools import partial
+from typing import Any
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
+from fvcore.nn import flop_count, parameter_count
 from timm.models.layers import DropPath, trunc_normal_
-from fvcore.nn import FlopCountAnalysis, flop_count_str, flop_count, parameter_count
 
 DropPath.__repr__ = lambda self: f"timm.DropPath({self.drop_prob})"
 # train speed is slower after enabling this opts.

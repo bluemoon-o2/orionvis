@@ -1,19 +1,11 @@
 import math
 import re
-import time
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import cv2
-import numpy as np
 from torchvision.ops import DeformConv2d
 from functools import partial
 
 from einops import rearrange, reduce
-from timm.layers.weight_init import trunc_normal_
 from timm.layers.activations import *
 from timm.layers import DropPath
-# from mmcv.ops import DeformConv2dPack
 
 # ========== For Common ==========
 class LayerNorm2d(nn.Module):

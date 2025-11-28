@@ -1,43 +1,44 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "setuptools_scm[toml]>=6.2", "torch", "packaging", "numpy"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "orionvis/_version.py"
+fallback_version = "1.1.0"
 
 [tool.setuptools]
 packages = { find = { where = ["."], include = ["orionvis*"] } }
 
-[project.package_data]
-mypackage = [
+[tool.setuptools.package-data]
+"orionvis" = [
   "configs/snaps/mobilemamba/*.txt",
 ]
 
 [project]
 name = "orionvis"
-version = "1.0.0"
+dynamic = ["version"]
 authors = [
-  { name="bluemoon-o2", email="2095774200@shu.edu.cn" },
+    { name = "bluemoon-o2", email = "2095774200@shu.edu.cn" },
 ]
-description = "A Python package for computer vision tasks in deep learning (e.g., feature extraction, model loading)"
+description = "A Python package for computer vision tasks with integrated CUDA extensions."
 readme = "README.md"
-license = { text = "Apache-2.0" }
-keywords = ["computer vision", "deep learning"]
+requires-python = ">=3.9"
 classifiers = [
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
 ]
-
 dependencies = [
-  "torch>=2.9.0",
-  "transformers>=4.57.1",
-  "xformers>=0.0.20",
-  "gdown>=5.0.0",
-  "pydantic>=2.12.4",
-  "lazy_object_proxy>=1.12.0",
+    "torch>=2.0.0",
+    "torchvision>=0.20.0",
+    "packaging>=21.0",
+    "ninja>=1.10.0",
+    "einops>=0.6.0",
+    "PyYAML>=6.0",
+    "lazy_object_proxy>=1.12.0",
+    "gdown>=5.0.0",
+    "tqdm>=4.0.0",
 ]
 
 [project.urls]
 "Homepage" = "https://github.com/bluemoon-o2/models"
-"Issue Tracker" = "https://github.com/bluemoon-o2/models/issues"

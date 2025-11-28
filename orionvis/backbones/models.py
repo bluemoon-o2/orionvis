@@ -1,4 +1,3 @@
-import os
 import torch
 import logging
 from torch.hub import load as hub_load
@@ -6,25 +5,12 @@ from importlib import import_module
 from typing import Union
 
 from ..utils import suppress_output
-from .weights import ensure_gdown_checkpoint
+from .weights import ensure_gdown_checkpoint, ensure_checkpoint
+
+from .mamba_mobile import get_model
+from .tresnet import tresnet_l_v2
 
 logger = logging.getLogger(__name__)
-
-
-_MobileMamba_Weights = {
-    "mobilemamba_t2" : "1LXh5wjVEUu5Kj1foclC9zmlKsy7JpMQ-",
-    "mobilemamba_t2s" : "14UUeEeN62a1jo5qit-m0yChQnNU8JWQG",
-    "mobilemamba_t4" : "17-5Q93_cEhBYMDzWTq4sDcc4_c_ezwpd",
-    "mobilemamba_t4s" : "12e1RKJEYDWVjOZuQLycjOUkA5PqCUnwu",
-    "mobilemamba_s6" : "13en_zNB2wuHmnHKZMUQDe4KizlaTCHbP",
-    "mobilemamba_s6s" : "1ujVeWpoICjioRF0aB7PD1fadM4PGFRfl",
-    "mobilemamba_b1" : "1ODO1XM2luMfczbDLJxHrEl-ie7yUscAC",
-    "mobilemamba_b1s" : "15rBhYky_f7jNSknXujuwQESaIkiTBAR1",
-    "mobilemamba_b2" : "1tJJZqeP09D_IAKKFuQtJQOYm4eNGjr1r",
-    "mobilemamba_b2s" : "1KuleL6Fi84zkjIhkRFbR4lqGa2iu6bOp",
-    "mobilemamba_b4" : "1MiGLHSldK2JpbQEe-7VlmFsaCdugDnYR",
-    "mobilemamba_b4s" : "1KevdesGm8Pb4fEbgZ5JY4FMy9IQgYbiZ",
-}
 
 
 def _resnet(
@@ -102,5 +88,20 @@ def _mobile_mamba(
         }
     }
     with suppress_output(stdout=not progress, stderr=not progress):
-        from .mamba_mobile import get_model
         return get_model(cfg_model)
+
+
+def _tresnet_v2(
+        arch: str,
+        pretrained: bool,
+        progress: bool,
+        device_map: Union[str, torch.device] = "auto",
+        dtype: torch.dtype = torch.float32
+):
+    save_path = None
+
+    if pretrained:
+        save_path = ensure_checkpoint(arch, progress=progress)
+
+    with suppress_output(stdout=not progress, stderr=not progress):
+        return tresnet_l_v2(save_path=save_path, device_map=device_map, dtype=dtype)
