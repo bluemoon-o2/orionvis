@@ -60,3 +60,19 @@ transform = orionvis.api.WeightsRegistry().get_transform("mobilemamba_b1s")
 
 ## License
 Apache License 2.0. See the license text: https://www.apache.org/licenses/LICENSE-2.0
+
+## Citation
+```
+@article{mobilemamba,
+  title={MobileMamba: Lightweight Multi-Receptive Visual Mamba Network},
+  author={Haoyang He and Jiangning Zhang and Yuxuan Cai and Hongxu Chen and Xiaobin Hu and Zhenye Gan and Yabiao Wang and Chengjie Wang and Yunsheng Wu and Lei Xie},
+  journal={arXiv preprint arXiv:2411.15941},
+  year={2024}
+}
+```
+
+## References
+- [torchvision](https://github.com/pytorch/vision)
+- [DINOv2](https://github.com/facebookresearch/dinov2)
+- [DINOv3](https://github.com/facebookresearch/dinov3)
+- [MobileMamba](https://github.com/lewandofskee/MobileMamba)
