@@ -1,0 +1,298 @@
+model_name: "mobilemamba_t2"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1LXh5wjVEUu5Kj1foclC9zmlKsy7JpMQ-"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 192
+        resize_size: 192
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 8.8e6
+      flops: 0.255e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.715
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_t2.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_t2s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=14UUeEeN62a1jo5qit-m0yChQnNU8JWQG"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 192
+        resize_size: 192
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 8.8e6
+      flops: 0.255e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.769
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_t2s.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_t4"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=17-5Q93_cEhBYMDzWTq4sDcc4_c_ezwpd"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 192
+        resize_size: 192
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 14.2e6
+      flops: 0.413e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.761
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_t4.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_t4s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=12e1RKJEYDWVjOZuQLycjOUkA5PqCUnwu"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 192
+        resize_size: 192
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 14.2e6
+      flops: 0.413e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.789
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_t4s.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_s6"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=13en_zNB2wuHmnHKZMUQDe4KizlaTCHbP"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 224
+        resize_size: 224
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 15.0e6
+      flops: 0.652e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.780
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_s6.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_s6s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1ujVeWpoICjioRF0aB7PD1fadM4PGFRfl"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 224
+        resize_size: 224
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 15.0e6
+      flops: 0.652e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.807
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_s6s.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b1"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1ODO1XM2luMfczbDLJxHrEl-ie7yUscAC"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 256
+        resize_size: 256
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 1.08e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.799
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b1.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b1s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=15rBhYky_f7jNSknXujuwQESaIkiTBAR1"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 224
+        resize_size: 256
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 1.08e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.822
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b1s.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b2"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1tJJZqeP09D_IAKKFuQtJQOYm4eNGjr1r"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 384
+        resize_size: 384
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 2.427e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.816
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b2.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b2s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1KuleL6Fi84zkjIhkRFbR4lqGa2iu6bOp"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 384
+        resize_size: 384
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 2.427e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.833
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b2s.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b4"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1MiGLHSldK2JpbQEe-7VlmFsaCdugDnYR"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 512
+        resize_size: 512
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 4.313e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.825
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b4.txt"
+    deprecated: { False : ""}
+    md5: ""
+
+---
+model_name: "mobilemamba_b4s"
+default: "IMAGENET1K_V1"
+weights:
+  - version: "IMAGENET1K_V1"
+    source: "Google Drive"
+    url: "https://drive.google.com/uc?id=1KevdesGm8Pb4fEbgZ5JY4FMy9IQgYbiZ"
+    transform:
+      name: "ImageClassification"
+      params:
+        crop_size: 512
+        resize_size: 512
+        normalize: True
+    meta:
+      num_classes: 1000
+      params: 17.1e6
+      flops: 4.313e9
+      training_data: "ImageNet-1K"
+      training_epoches: 1000
+      accuracy: 0.836
+      release: "CVPR2025"
+      cfg_path: "../snaps/mobilemamba/mobilemamba_b4s.txt"
+    deprecated: { False : ""}
+    md5: ""

@@ -1,0 +1,7 @@
+torch==2.9.0+cu130
+torchvision==0.24.0+cu130
+transformers>=4.57.1
+xformers>=0.0.20
+gdown>=5.0.0
+pydantic>=2.12.4
+lazy_object_proxy>=1.12.0
