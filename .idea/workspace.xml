@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4760c05-d606-458b-9bbd-4ae0f5e36ec8" name="更改" comment="add hub">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="f4760c05-d606-458b-9bbd-4ae0f5e36ec8" name="更改" comment="Fix: remove torch and torchvision from install_requires">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
@@ -195,7 +196,39 @@
       <option name="project" value="LOCAL" />
       <updated>1764409179490</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix: remove torch and torchvision from install_requires">
+      <option name="closed" value="true" />
+      <created>1764416387891</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764416387891</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix: remove torch and torchvision from install_requires">
+      <option name="closed" value="true" />
+      <created>1764416968536</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764416968536</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix: remove torch and torchvision from install_requires">
+      <option name="closed" value="true" />
+      <created>1764416987718</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764416987718</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix: remove torch and torchvision from install_requires">
+      <option name="closed" value="true" />
+      <created>1764417097663</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764417097663</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +251,8 @@
     <MESSAGE value="add banner" />
     <MESSAGE value="add banner" />
     <MESSAGE value="add hub" />
-    <option name="LAST_COMMIT_MESSAGE" value="add hub" />
+    <MESSAGE value="Fix: remove torch and torchvision from install_requires" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: remove torch and torchvision from install_requires" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

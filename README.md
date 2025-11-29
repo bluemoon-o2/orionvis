@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./docs/OrionVis_Minimal_Logo.png" alt="OrionVis" width="20%">
+<img src="https://raw.githubusercontent.com/bluemoon-o2/orionvis/main/docs/OrionVis_Minimal_Logo.png" alt="OrionVis" width="40%">
 
 # OrionVis
 
@@ -20,7 +20,7 @@ OrionVis streamlines common CV workflows in PyTorch: load backbones with a singl
 - Transform registry (e.g., `ImageClassification`) for ready‑to‑use preprocessing.
 - Feature extraction helpers and utilities.
 
-<img src="./docs/OrionVis_Banner.png" alt="OrionVis_Banner">
+<img src="https://raw.githubusercontent.com/bluemoon-o2/orionvis/main/docs/OrionVis_Banner.png" alt="OrionVis_Banner">
 
 ## Installation
 

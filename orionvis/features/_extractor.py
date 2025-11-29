@@ -1,7 +1,8 @@
-import torch
 import logging
 from functools import partial
 from typing import Optional, Union
+
+import torch
 from torch.fx.proxy import TraceError
 
 from ..utils import recursive_apply
@@ -79,6 +80,7 @@ def _parse_for_hook(nodes: Optional[Union[list[str], dict[str, str]]]) -> Option
 
 def create_feature_extractor(
     model: torch.nn.Module,
+    mode: str = "fx",
     return_nodes: Optional[Union[list[str], dict[str, str]]] = None,
     train_return_nodes: Optional[Union[list[str], dict[str, str]]] = None,
     eval_return_nodes: Optional[Union[list[str], dict[str, str]]] = None,
@@ -100,6 +102,7 @@ def create_feature_extractor(
             node specification strings directly to output names. In the case
             that ``train_return_nodes`` and ``eval_return_nodes`` are specified,
             this should not be specified.
+        mode (str, optional): either "fx" or "hook". Default is "fx".
         train_return_nodes (list or dict, optional): similar to
             ``return_nodes``. This can be used if the return nodes
             for train mode are different than those from eval mode.
@@ -135,6 +138,16 @@ def create_feature_extractor(
 
     if not ((return_nodes is None) ^ (train_return_nodes is None)):
         raise ValueError("If `train_return_nodes` and `eval_return_nodes` are specified, then both should be specified")
+
+    if mode not in ["fx", "hook"]:
+        raise ValueError(f"Unsupported mode: {mode}. Supported modes are 'fx' and 'hook'.")
+
+    if mode == "hook":
+        base_parsed = _parse_for_hook(return_nodes)
+        train_parsed = _parse_for_hook(train_return_nodes) or base_parsed
+        eval_parsed = _parse_for_hook(eval_return_nodes) or base_parsed
+        extractor = FeatureExtractorWithHook(model, train_parsed, eval_parsed)
+        return extractor
 
     try:
         from torchvision.models.feature_extraction import create_feature_extractor as fx_create_feature_extractor
