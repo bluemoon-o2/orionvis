@@ -324,6 +324,18 @@ setup(
     name="orionvis",
     packages=find_packages(include=["orionvis", "orionvis.*"]),
     package_dir={"": "."},
+    package_data={
+        "orionvis": [
+            "configs/snaps/mobilemamba/*.txt",
+            "configs/weights/*.yaml",
+            "extentions/inplace_abn/include/*.h",
+            "extentions/inplace_abn/include/*.cuh",
+            "extentions/selective_scan/*.h",
+            "extentions/selective_scan/*.cuh",
+            "extentions/selective_scan/*.cpp",
+            "extentions/selective_scan/*.cu",
+        ]
+    },
     author="bluemoon-o2",
     author_email="2095774200@shu.edu.cn",
     description="A Python package for computer vision tasks with integrated CUDA extensions.",
