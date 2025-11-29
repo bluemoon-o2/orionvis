@@ -1,5 +1,5 @@
 ./output
-try.py
+ad/try.py
 
 *.egg-info/
 ./ad

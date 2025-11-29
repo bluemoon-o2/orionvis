@@ -1,0 +1,3 @@
+recursive-include orionvis/configs *
+recursive-include orionvis/extentions/inplace_abn/include *
+recursive-include orionvis/extentions/selective_scan *.h *.cuh *.cpp *.cu

@@ -9,11 +9,6 @@ fallback_version = "1.1.0"
 [tool.setuptools]
 packages = { find = { where = ["."], include = ["orionvis*"] } }
 
-[tool.setuptools.package-data]
-"orionvis" = [
-  "configs/snaps/mobilemamba/*.txt",
-]
-
 [project]
 name = "orionvis"
 dynamic = ["version"]

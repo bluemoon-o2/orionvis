@@ -23,14 +23,52 @@ OrionVis streamlines common CV workflows in PyTorch: load backbones with a singl
 <img src="./docs/OrionVis_Banner.png" alt="OrionVis_Banner">
 
 ## Installation
+
+**Prerequisites**:
+- NVIDIA GPU with CUDA (tested on CUDA 11.8+)
+- PyTorch >= 2.0
+- Microsoft Visual C++ Build Tools (for Windows)
+
+### Install from Pre-built Wheels (Recommended for Users)
+
+If you do not want to compile from source, you can install the pre-built wheel package directly:
+
 ```bash
 pip install orionvis
 ```
-For source code installation:
+
+### Development Installation (Recommended for Developers)
+
+For Windows users, we provide a `build.bat` script that handles environment setup, cleaning, and editable installation:
+
 ```bash
 git clone https://github.com/bluemoon-o2/orionvis
 cd orionvis
-pip install -e .
+# install in editable mode
+build.bat
+```
+
+
+## CUDA Extensions
+
+OrionVis comes with integrated high-performance CUDA extensions to accelerate specific operations. These extensions are automatically compiled during installation.
+
+### 1. Selective Scan (Mamba)
+Optimized CUDA implementation of the Selective Scan mechanism used in Mamba architectures (`mamba_mobile`, etc.). It provides significant speedups compared to the pure PyTorch implementation.
+
+- **Backend**: `orionvis.extentions.selective_scan`
+- **Usage**: Automatically used by `mobilemamba` backbones when available.
+
+### 2. InPlace Activated Batch Normalization (InPlace-ABN)
+A memory-efficient implementation of Batch Normalization combined with activation functions. It performs the activation in-place, saving GPU memory during training.
+
+- **Backend**: `orionvis.extentions.inplace_abn`
+- **Usage**:
+```python
+from orionvis.extentions.inplace_abn import InPlaceABN
+
+# Use just like standard BatchNorm2d but with activation included
+layer = InPlaceABN(num_features=64, activation="leaky_relu", activation_param=0.01)
 ```
 
 ## Quickstart

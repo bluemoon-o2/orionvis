@@ -40,7 +40,7 @@ if %errorlevel% neq 0 (
 
 REM Install requirements
 echo Installing requirements...
-pip install -r requirements.txt
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu130
 if %errorlevel% neq 0 (
     echo Failed to install requirements!
     exit /b %errorlevel%

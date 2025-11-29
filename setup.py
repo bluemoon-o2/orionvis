@@ -322,7 +322,6 @@ def read_readme():
 
 setup(
     name="orionvis",
-    version="1.1.0",
     packages=find_packages(include=["orionvis", "orionvis.*"]),
     package_dir={"": "."},
     author="bluemoon-o2",
