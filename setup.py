@@ -361,15 +361,10 @@ setup(
     ext_modules=get_ext_modules(),
     cmdclass={"build_ext": BuildExtension},
     python_requires=">=3, <4",
-    use_scm_version={
-        "root": ".",
-        "relative_to": __file__,
-        "write_to": "orionvis/_version.py",
-    },
+    version="1.1.2",
     install_requires=[
         "setuptools_scm",
-        "torch>=2.0.0",
-        "torchvision>=0.20.0",
+
         "packaging>=21.0",
         "ninja>=1.10.0",
         "einops>=0.6.0",

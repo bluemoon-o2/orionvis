@@ -33,7 +33,7 @@ if %errorlevel% neq 0 (
 
 REM Uninstall existing package
 echo Uninstalling existing orionvis...
-pip uninstall -y orionvis
+pip uninstall -y orionvis torch torchvision
 if %errorlevel% neq 0 (
     echo Warning: Uninstall failed or package not installed. Continuing...
 )

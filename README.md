@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./docs/OrionVis_Minimal_Logo.png" alt="OrionVis" width="20%">
+<img src="./docs/OrionVis_Minimal_Logo.png" alt="OrionVis" width="40%">
 
 # OrionVis
 
